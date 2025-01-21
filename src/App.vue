@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <el-button>我是 ElButton</el-button>
+    <el-button>我是ElButton</el-button>
     <router-view />
   </div>
 
