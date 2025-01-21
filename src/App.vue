@@ -1,14 +1,15 @@
-<script setup lang="ts">
-
-</script>
 
 <template>
   <div>
     <el-button>我是 ElButton</el-button>
+    <router-view />
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
 </template>
 
 <style scoped>
 
 </style>
+<script setup lang="ts">
+
+</script>
