@@ -3,6 +3,12 @@ import { createRouter, createWebHistory } from "vue-router";  // 使用 createWe
 import HomeView from "@/views/home/index.vue";
 import AboutView from "@/views/about/index.vue";
 
+
+export const asyncRoutes = []
+export const constantRoutes = []
+
+
+
 const routes = [
   { path: "/home", component: HomeView },
   { path: "/about", component: AboutView },
