@@ -5,9 +5,10 @@ import errorLog from "./modules/errorLog.ts";
 import permission from "./modules/permission.ts";
 import settings from "./modules/settings.ts";
 import tagsView from "./modules/tagsView.ts";
+import user from "./modules/user.ts";
 
 const store = createStore({
-  modules: { app, errorLog, permission, settings, tagsView },
+  modules: { app, errorLog, permission, settings, tagsView,user },
 });
 
 export default store;

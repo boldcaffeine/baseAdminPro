@@ -25,4 +25,8 @@ const router = createRouter({
   routes,
 });
 
+export function resetRouter() {
+  
+}
+
 export default router;
