@@ -5,12 +5,18 @@ import AboutView from "@/views/about/index.vue";
 
 
 export const asyncRoutes = []
-export const constantRoutes = []
+export const constantRoutes = [
+  {
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    hidden: true,
+  },
+]
 
 
 
 const routes = [
-  { path: "/home", component: HomeView },
+  { path: "/", component: HomeView },
   { path: "/about", component: AboutView },
 ];
 

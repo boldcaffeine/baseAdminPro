@@ -4,7 +4,7 @@
 
 <script setup>
 
-import { computed } from 'vue'
+import { computed } from 'vue';
 import { useStore } from 'vuex'
 
 const store = useStore()
@@ -12,5 +12,5 @@ const store = useStore()
 const doneTodosCount = computed(() => {
   return store.state.count
 })
-console.log(store.state.app.device)
+console.log(store.state)
 </script>
