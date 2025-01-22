@@ -19,16 +19,15 @@ interface Route {
 
 // 判断角色是否有权限访问某个路由
 function hasPermission(roles: Role[], route: Route): boolean {
-  // 使用可选链避免访问未定义的属性
+  // 强制断言 route.meta 存在
   if (route.meta?.roles) {
-    // 强制断言 route.meta 和 route.meta.roles 存在
-    return roles.some((role) =>
-      (route.meta!.roles! as string[]).includes(role)
-    );
+    // @ts-ignore
+    return roles.some((role) => route.meta.roles.includes(role));
+  } else {
+    return true;
   }
-  // 如果没有 roles，默认允许访问
-  return true;
 }
+
 
 // 根据角色过滤异步路由
 export function filterAsyncRoutes(routes: Route[], roles: Role[]): Route[] {
