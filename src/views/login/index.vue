@@ -5,8 +5,6 @@
       :model="loginForm"
       :rules="loginRules"
       class="login-form"
-      autocomplete="on"
-      label-position="left"
     >
       <div class="title-container">
         <h3 class="title">Login Form</h3>
@@ -42,11 +40,11 @@
             name="password"
             tabindex="2"
             autocomplete="on"
+            show-password
             @keyup="checkCapslock"
             @blur="capsTooltip = false"
             @keyup.enter="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd"> </span>
         </el-form-item>
       </el-tooltip>
 
@@ -211,26 +209,17 @@ $cursor: #fff;
   }
 }
 
-/* reset element-ui css */
 .login-container {
-  .el-input {
+  :deep(.el-input) {
     display: inline-block;
-    height: 47px;
     width: 85%;
-
-    input {
+    padding: 8px 5px 8px 15px;
+    .el-input__wrapper {
+      width: 100%;
+      box-shadow: none;
       background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      caret-color: $cursor;
-
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+      .el-input__inner {
+        color: #fff;
       }
     }
   }
