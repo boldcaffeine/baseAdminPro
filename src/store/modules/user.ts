@@ -25,7 +25,6 @@ interface UserState {
 interface UserTokenData {
   data: {
     token: string;
-
   };
 }
 
@@ -72,7 +71,7 @@ const actions = {
     const { username, password } = userInfo;
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password })
-        .then((response:UserTokenData) => {
+        .then((response: UserTokenData) => {
           const { data } = response;
           commit("SET_TOKEN", data.token);
           setToken(data.token);
@@ -85,23 +84,26 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }: ActionContext<UserState, RootState>): Promise<any> {
+  getInfo({
+    commit,
+    state,
+  }: ActionContext<UserState, RootState>): Promise<any> {
     return new Promise((resolve, reject) => {
       getInfo(state.token as string)
-        .then((response:any) => {
+        .then((response: any) => {
           const { data } = response;
-  
+
           if (!data) {
             reject("Verification failed, please Login again.");
           }
-  
+
           const { roles, name, avatar, introduction } = data;
-  
+
           // roles must be a non-empty array
           if (!roles || roles.length <= 0) {
             reject("getInfo: roles must be a non-null array!");
           }
-  
+
           commit("SET_ROLES", roles);
           commit("SET_NAME", name);
           commit("SET_AVATAR", avatar);
@@ -113,12 +115,13 @@ const actions = {
         });
     });
   },
-  
 
   // user logout
-  logout(
-    { commit, state, dispatch }: ActionContext<UserState, RootState>
-  ): Promise<void> {
+  logout({
+    commit,
+    state,
+    dispatch,
+  }: ActionContext<UserState, RootState>): Promise<void> {
     return new Promise((resolve, reject) => {
       logout()
         .then(() => {

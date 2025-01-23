@@ -95,10 +95,15 @@
 <script setup>
 import { ref, reactive, watch, onMounted } from "vue";
 import SocialSign from "./components/SocialSignin.vue";
-import { useRoute } from "vue-router";
+
 import { validUsername } from "@/utils/validate.ts";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
+const store = useStore();
 // 使用 useRoute 来获取当前路由对象
 const route = useRoute();
+// 使用 useRouter 来获取路由对象
+const router = useRouter();
 
 const validateUsername = (rule, value, callback) => {
   if (!validUsername(value)) {
@@ -179,10 +184,10 @@ const handleLogin = () => {
   loginFormRef.value.validate((valid) => {
     if (valid) {
       loading.value = true;
-      $store
+      store
         .dispatch("user/login", loginForm)
         .then(() => {
-          $router.push({
+          router.push({
             path: redirect.value || "/",
             query: otherQuery.value,
           });

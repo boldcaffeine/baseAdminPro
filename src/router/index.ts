@@ -5,10 +5,17 @@ import AboutView from "@/views/about/index.vue";
 
 export const asyncRoutes = [];
 export const constantRoutes = [
+  { path: "/", component: HomeView },
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
     hidden: true,
+  },
+  {
+    path: "/dashboard",
+    component: () => import("@/views/dashboard/index.vue"),
+    name: "Dashboard",
+    meta: { title: "Dashboard", icon: "dashboard", affix: true },
   },
 ];
 
