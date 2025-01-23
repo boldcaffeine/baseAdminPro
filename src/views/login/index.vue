@@ -11,7 +11,9 @@
       </div>
 
       <el-form-item prop="username">
-        <span class="svg-container"> </span>
+        <span class="svg-container">
+          <svg-icon name="user" color="#889aa4"></svg-icon>
+        </span>
         <el-input
           ref="usernameRef"
           v-model="loginForm.username"
@@ -30,7 +32,9 @@
         manual
       >
         <el-form-item prop="password">
-          <span class="svg-container"> </span>
+          <span class="svg-container">
+            <svg-icon name="password" color="#889aa4"></svg-icon>
+          </span>
           <el-input
             :key="passwordType"
             ref="passwordRef"
@@ -213,7 +217,7 @@ $cursor: #fff;
   :deep(.el-input) {
     display: inline-block;
     width: 85%;
-    padding: 8px 5px 8px 15px;
+    padding: 8px 5px 8px 0;
     .el-input__wrapper {
       width: 100%;
       box-shadow: none;
