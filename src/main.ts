@@ -4,7 +4,7 @@ import zhCn from "element-plus/es/locale/lang/zh-cn";
 
 import "normalize.css";
 import "element-plus/dist/index.css";
-import "./style.css";
+import "./globalStyles/index.scss"; // global css
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";

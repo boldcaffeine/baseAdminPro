@@ -21,7 +21,11 @@ const routes = [
     name: "Dashboard",
     meta: { title: "Dashboard", icon: "dashboard", affix: true },
   },
-
+  {
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    hidden: true,
+  },
 ];
 
 const router = createRouter({
