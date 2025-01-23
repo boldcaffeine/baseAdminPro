@@ -7,8 +7,11 @@ import settings from "./modules/settings.ts";
 import tagsView from "./modules/tagsView.ts";
 import user from "./modules/user.ts";
 
+import getters from "./getters/index.ts";
+
 const store = createStore({
-  modules: { app, errorLog, permission, settings, tagsView,user },
+  modules: { app, errorLog, permission, settings, tagsView, user },
+  getters,
 });
 
 export default store;

@@ -12,5 +12,7 @@ const store = useStore()
 const doneTodosCount = computed(() => {
   return store.state.count
 })
-console.log(store.state)
+console.log(store.state,'store.state')
+console.log(store.getters,'store.getters')
+
 </script>
