@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rollup/rollup-darwin-x64": "^4.31.0",
     "axios": "^1.7.9",
     "element-plus": "^2.9.3",
     "js-cookie": "^3.0.5",
