@@ -5,7 +5,7 @@
       class="drawer-bg"
       @click="handleClickOutside"
     />
-    <div class="sidebar-container">我是左侧</div>
+    <sidebar class="sidebar-container" />
     <div class="main-container">我是右侧</div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
-
+import Sidebar from "./components/Sidebar/index.vue";
 // Vuex store
 const store = useStore();
 
