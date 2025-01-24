@@ -59,7 +59,8 @@ const state: State = {
 const mutations = {
   SET_ROUTES: (state: State, routes: Route[]) => {
     state.addRoutes = routes;
-    state.routes = constantRoutes.concat(routes);
+    // @ts-ignore
+    state.routes = constantRoutes.concat(routes );
   },
 };
 
