@@ -1,18 +1,21 @@
-import { createRouter, createWebHashHistory,type Router } from "vue-router"; // 使用 createWebHistory
+import { createRouter, createWebHashHistory, type Router } from "vue-router"; // 使用 createWebHistory
 
-import HomeView from "@/views/home/index.vue";
+import Layout from "@/layout/index.vue";
 import AboutView from "@/views/about/index.vue";
 
 export const constantRoutes = [
-  { path: "/", component: HomeView },
-  { path: "/about", component: AboutView },
-  { path: "/layout", component: () => import("@/layout/index.vue") },
-
   {
-    path: "/dashboard",
-    component: () => import("@/views/dashboard/index.vue"),
-    name: "Dashboard",
-    meta: { title: "Dashboard", icon: "dashboard", affix: true },
+    path: "/",
+    component: Layout,
+    redirect: "/dashboard",
+    children: [
+      {
+        path: "dashboard",
+        component: () => import("@/views/dashboard/index.vue"),
+        name: "Dashboard",
+        meta: { title: "Dashboard", icon: "dashboard", affix: true },
+      },
+    ],
   },
   {
     path: "/login",

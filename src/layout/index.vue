@@ -6,7 +6,7 @@
       @click="handleClickOutside"
     />
     <sidebar class="sidebar-container" />
-    <div class="main-container">我是右侧</div>
+    <div class="main-container">我是右侧 <router-view></router-view></div>
   </div>
 </template>
 
@@ -35,7 +35,6 @@ const handleClickOutside = () => {
 };
 console.log(classObj.value);
 </script>
-
 
 <style lang="scss" scoped>
 @use "@/globalStyles/mixin.scss";

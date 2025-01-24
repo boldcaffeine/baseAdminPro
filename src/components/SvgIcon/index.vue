@@ -1,10 +1,12 @@
 <template>
-  <svg aria-hidden="true" :class="svgClass">
-    <use :xlink:href="symbolId"  />
-  </svg>
+  <i :class="svgClass">
+    <svg aria-hidden="true">
+      <use :xlink:href="symbolId" />
+    </svg>
+  </i>
 </template>
 
-  <script setup>
+<script setup>
 import { computed } from "vue";
 
 const props = defineProps({
@@ -27,14 +29,23 @@ const svgClass = computed(() => {
   return props.name ? `svg-icon ${props.name}` : "svg-icon";
 });
 </script>
-  
 
-<style scoped>
+<style lang="scss" scoped>
 .svg-icon {
+  display: inline-flex;
+  justify-content: center;
   width: 1em;
   height: 1em;
-  vertical-align: -0.15em;
+  line-height: 1em;
+  --color: inherit;
+  align-items: center;
+  position: relative;
   fill: currentColor;
+  color: var(--color);
   overflow: hidden;
+  svg {
+    width: 1em;
+    height: 1em;
+  }
 }
 </style>
