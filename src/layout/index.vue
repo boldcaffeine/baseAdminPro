@@ -67,11 +67,6 @@ console.log(classObj.value);
     transition: width 0.28s;
     background-color: vars.$menuBg;
     font-size: 0px;
-    &.has-logo {
-      :deep(.el-scrollbar) {
-        height: calc(100% - 50px);
-      }
-    }
   }
   .main-container {
     margin-left: vars.$sideBarWidth;
