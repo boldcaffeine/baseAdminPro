@@ -6,7 +6,13 @@
       @click="handleClickOutside"
     />
     <sidebar class="sidebar-container" />
-    <div class="main-container">我是右侧 <router-view></router-view></div>
+    <div class="main-container" :class="{ hasTagsView: needTagsView }">
+      <div :class="{ 'fixed-header': fixedHeader }">
+        <Navbar></Navbar>
+      </div>
+
+      我是右侧 <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -14,6 +20,7 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import Sidebar from "./components/Sidebar/index.vue";
+import Navbar from "./components/Navbar/index.vue";
 // Vuex store
 const store = useStore();
 
@@ -69,6 +76,14 @@ console.log(classObj.value);
   }
   .main-container {
     margin-left: vars.$sideBarWidth;
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9;
+      width: calc(100% - vars.$sideBarWidth);
+      transition: width 0.28s;
+    }
   }
 }
 </style>
