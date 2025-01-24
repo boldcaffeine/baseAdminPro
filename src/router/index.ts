@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory, type Router } from "vue-router"; // 使用 createWebHistory
 
 import Layout from "@/layout/index.vue";
-import AboutView from "@/views/about/index.vue";
 
 export const constantRoutes = [
   {
