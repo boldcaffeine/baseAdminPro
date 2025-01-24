@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@rollup/rollup-darwin-x64": "^4.31.0",
     "axios": "^1.7.9",
     "element-plus": "^2.9.3",
     "js-cookie": "^3.0.5",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
+    "sass-embedded-darwin-x64": "^1.83.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "vuex": "^4.0.2"
