@@ -19,4 +19,5 @@ declare module "js-cookie" {
   export default Cookies;
 }
 
-declare module 'virtual:svg-icons-register';
+declare module "virtual:svg-icons-register";
+declare module "nprogress";

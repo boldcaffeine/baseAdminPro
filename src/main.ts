@@ -8,6 +8,7 @@ import "./globalStyles/index.scss"; // global css
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "./permission.ts"; // permission control
 import "virtual:svg-icons-register";
 import SvgIcon from "@/components/SvgIcon/index.vue";
 // @ts-ignore
