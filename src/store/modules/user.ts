@@ -35,14 +35,7 @@ const state: UserState = {
   introduction: "",
   roles: [],
 };
-interface UserInfoResponse {
-  data: {
-    roles: string[];
-    name: string;
-    avatar: string;
-    introduction: string;
-  };
-}
+
 
 const mutations = {
   SET_TOKEN(state: UserState, token: string) {
