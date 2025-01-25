@@ -17,14 +17,14 @@ export const constantRoutes = [
     ],
   },
   {
-    path: "/about",
+    path: "/documentation",
     component: Layout,
     children: [
       {
-        path: "about",
+        path: "index",
         component: () => import("@/views/about/index.vue"),
-        name: "About",
-        meta: { title: "About", icon: "dashboard", affix: true },
+        name: "Documentation",
+        meta: { title: "Documentation", icon: "documentation", affix: true },
       },
     ],
   },
