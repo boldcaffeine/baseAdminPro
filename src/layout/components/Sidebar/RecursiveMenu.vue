@@ -1,19 +1,18 @@
 <template>
   <template v-if="!menuItem.hidden">
     <template v-if="hasOneShowingChild(menuItem.children, menuItem)">
-      <router-link :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)">
-          <svg-icon
-            v-if="onlyOneChild.meta && onlyOneChild.meta.icon"
-            :name="onlyOneChild.meta.icon"
-          />
-          <span> {{ onlyOneChild.meta.title }}</span>
-        </el-menu-item>
-      </router-link>
+      <el-menu-item :index="resolvePath(onlyOneChild.path)">
+        <svg-icon
+          v-if="onlyOneChild.meta && onlyOneChild.meta.icon"
+          :name="onlyOneChild.meta.icon"
+        />
+        <span> {{ onlyOneChild.meta.title }}</span>
+      </el-menu-item>
     </template>
     <template v-else>
       <el-sub-menu :index="resolvePath(menuItem.path)">
         <template #title>
+          
           <span>{{ menuItem.meta.title }}</span>
         </template>
         <recursive-menu

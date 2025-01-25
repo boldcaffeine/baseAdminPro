@@ -74,6 +74,7 @@ console.log(classObj.value);
     background-color: vars.$menuBg;
     font-size: 0px;
   }
+
   .main-container {
     margin-left: vars.$sideBarWidth;
     .fixed-header {
@@ -83,6 +84,23 @@ console.log(classObj.value);
       z-index: 9;
       width: calc(100% - vars.$sideBarWidth);
       transition: width 0.28s;
+    }
+  }
+  &.hideSidebar {
+    :deep(.el-menu--collapse) {
+      border-right-color: transparent;
+      .svg-icon {
+        margin: 0;
+        text-align: center;
+        vertical-align: middle;
+        width: var(--el-menu-icon-width);
+      }
+    }
+    .sidebar-container {
+      width: vars.$miniSideBarWidth;
+    }
+    .main-container {
+      margin-left: vars.$miniSideBarWidth;
     }
   }
 }

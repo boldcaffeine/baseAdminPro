@@ -1,6 +1,33 @@
 <template>
-  <div class="navbar">123213 NavBar</div>
+  <div class="navbar">
+    <hamburger
+      id="hamburger-container"
+      :is-active="sidebar.opened"
+      class="hamburger-container"
+      @toggleClick="toggleSideBar"
+    />
+    <div>
+      123213 NavBar
+    </div>
+  </div>
 </template>
+
+<script setup lang="ts">
+import {computed} from 'vue';
+import Hamburger from "@/components/Hamburger/index.vue";
+
+import { useStore } from "vuex";
+// 获取 Vuex store
+const store = useStore();
+
+// 计算属性
+const sidebar = computed(() => store.getters.sidebar);
+
+// 方法
+const toggleSideBar = () => {
+  store.dispatch("app/toggleSideBar");
+};
+</script>
 
 <style lang="scss" scoped>
 .navbar {

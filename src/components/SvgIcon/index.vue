@@ -42,6 +42,7 @@ const svgClass = computed(() => {
   position: relative;
   fill: currentColor;
   color: var(--color);
+  flex-shrink: 0;
   overflow: hidden;
   svg {
     width: 1em;

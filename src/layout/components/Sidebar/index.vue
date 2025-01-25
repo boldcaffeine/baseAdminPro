@@ -3,13 +3,16 @@
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar>
       <el-menu
+        :collapse="isCollapse"
         :default-active="activeMenu"
         active-text-color="#ffd04b"
         background-color="#304156"
         text-color="#bfcbd9"
         :unique-opened="false"
         :collapse-transition="false"
+        router
         default-active="2"
+        
       >
         <RecursiveMenu
           v-for="item in permissionRoutes"
@@ -17,10 +20,6 @@
           :menu-item="item"
           :base-path="item.path"
         />
-        <el-menu-item index="4">
-          <el-icon><setting /></el-icon>
-          <span>Navigator Four</span>
-        </el-menu-item>
       </el-menu>
     </el-scrollbar>
   </div>

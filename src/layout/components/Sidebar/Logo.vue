@@ -1,27 +1,16 @@
 <template>
-  <div class="sidebar-logo-container" :class="{ collapse }">
-    <transition name="sidebarLogoFade">
-      <router-link
-        v-if="collapse"
-        key="collapse"
-        class="sidebar-logo-link"
-        to="/"
-      >
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title">{{ title }}</h1>
-      </router-link>
-      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 class="sidebar-title">{{ title }}</h1>
-      </router-link>
-    </transition>
+  <div class="sidebar-logo-container" :class="{ collapse: collapse }">
+    <router-link class="sidebar-logo-link" to="/">
+      <img v-if="logo" :src="logo" class="sidebar-logo" />
+      <h1 class="sidebar-title">{{ title }}</h1>
+    </router-link>
   </div>
 </template>
-  
-  <script setup lang="ts">
+
+<script setup>
 import { defineProps } from "vue";
 
-// Define props
+// 定义 props
 const props = defineProps({
   collapse: {
     type: Boolean,
@@ -29,59 +18,54 @@ const props = defineProps({
   },
 });
 
-// Data
+// 使用 `reactive` 和 `ref` 创建数据
 const title = "Vue Element Admin";
 const logo =
   "https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png";
 </script>
-  
-  <style lang="scss" scoped>
-.sidebarLogoFade-enter-active {
-  transition: opacity 1.5s;
-}
 
-.sidebarLogoFade-enter,
-.sidebarLogoFade-leave-to {
-  opacity: 0;
-}
-
+<style lang="scss" scoped>
 .sidebar-logo-container {
   position: relative;
+  align-items: center;
   width: 100%;
   height: 50px;
-  line-height: 50px;
   background: #2b2f3a;
   text-align: center;
   overflow: hidden;
 
-  & .sidebar-logo-link {
-    height: 100%;
+  .sidebar-logo-link {
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
     width: 100%;
-
-    & .sidebar-logo {
+    .sidebar-logo {
       width: 32px;
       height: 32px;
       vertical-align: middle;
       margin-right: 12px;
+      margin-left: 16px;
     }
 
-    & .sidebar-title {
+    .sidebar-title {
       display: inline-block;
       margin: 0;
       color: #fff;
       font-weight: 600;
-      line-height: 50px;
       font-size: 14px;
-      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
-      vertical-align: middle;
+      opacity: 1;
+      transform: translateY(0px);
+      transition: opacity 0.3s ease, transform 0.3s ease, font-size 0.3s ease,
+        color 1.3s ease;
     }
   }
-
   &.collapse {
-    .sidebar-logo {
-      margin-right: 0px;
+    .sidebar-title {
+      font-size: 0;
+      opacity: 0;
+      transform: translateY(-30px);
+      color: #304156;
     }
   }
 }
 </style>
-  
