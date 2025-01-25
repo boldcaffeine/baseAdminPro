@@ -6,14 +6,12 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar"
     />
-    <div>
-      123213 NavBar
-    </div>
+    <div>123213 NavBar</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue';
+import { computed } from "vue";
 import Hamburger from "@/components/Hamburger/index.vue";
 
 import { useStore } from "vuex";
@@ -36,5 +34,12 @@ const toggleSideBar = () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .hamburger-container {
+    box-sizing: border-box;
+    height: 50px;
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+  }
 }
 </style>
