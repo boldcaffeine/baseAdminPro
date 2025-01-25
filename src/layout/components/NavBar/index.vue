@@ -9,7 +9,10 @@
       />
       <Breadcrumb class="breadcrumb-container" id="breadcrumb-container" />
     </div>
-    <div class="nav-right">我是右侧</div>
+    <div class="nav-right">
+      <search class="right-menu-item" id="header-search" />
+      <div>我是右侧</div>
+    </div>
   </div>
 </template>
 
@@ -17,7 +20,7 @@
 import { computed } from "vue";
 import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
-
+import Search from "@/components/HeaderSearch/index.vue";
 import { useStore } from "vuex";
 // 获取 Vuex store
 const store = useStore();
@@ -49,6 +52,21 @@ const toggleSideBar = () => {
       display: inline-block;
       padding: 15px;
       cursor: pointer;
+    }
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    .right-menu-item {
+      padding: 0 8px;
+      color: #5a5e66;
+      &.hover-effect {
+        cursor: pointer;
+        transition: background 0.3s;
+        &:hover {
+          background: rgba(0, 0, 0, 0.025);
+        }
+      }
     }
   }
 }
