@@ -30,6 +30,18 @@ export const constantRoutes = [
     ],
   },
   {
+    path: "/profile",
+    component: Layout,
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/profile/index.vue"),
+        name: "profile",
+        meta: { title: "profile", icon: "documentation", affix: true },
+      },
+    ],
+  },
+  {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
     hidden: true,
