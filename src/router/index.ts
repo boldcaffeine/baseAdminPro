@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory, type Router } from "vue-router"; //
 import Layout from "@/layout/index.vue";
 
 export const constantRoutes = [
+
   {
     path: "/",
     component: Layout,
