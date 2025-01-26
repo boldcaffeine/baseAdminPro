@@ -8,9 +8,11 @@
         @toggleClick="toggleSideBar"
       />
       <Breadcrumb class="breadcrumb-container" id="breadcrumb-container" />
+
     </div>
     <div class="nav-right">
       <search class="right-menu-item" id="header-search" />
+      <screenfull class="right-menu-item hover-effect" id="screenfull" />
       <div>我是右侧</div>
     </div>
   </div>
@@ -21,6 +23,7 @@ import { computed } from "vue";
 import Hamburger from "@/components/Hamburger/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
 import Search from "@/components/HeaderSearch/index.vue";
+import Screenfull from "@/components/Screenfull/index.vue";
 import { useStore } from "vuex";
 // 获取 Vuex store
 const store = useStore();
