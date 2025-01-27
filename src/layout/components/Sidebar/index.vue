@@ -11,7 +11,6 @@
         :unique-opened="false"
         :collapse-transition="false"
         router
-        default-active="2"
         
       >
         <RecursiveMenu
@@ -31,12 +30,7 @@ import { useStore } from "vuex";
 import { useRoute } from "vue-router"; // 引入 useRoute
 import Logo from "./Logo.vue";
 import RecursiveMenu from "./RecursiveMenu.vue";
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from "@element-plus/icons-vue";
+
 
 // Get the store
 const store = useStore();

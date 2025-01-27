@@ -9,9 +9,11 @@
     <div class="main-container" :class="{ hasTagsView: needTagsView }">
       <div :class="{ 'fixed-header': fixedHeader }">
         <Navbar></Navbar>
+        <tags-view v-if="needTagsView" />
       </div>
+       <div>我是右侧 </div>
 
-      我是右侧 <router-view></router-view>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -20,7 +22,8 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import Sidebar from "./components/Sidebar/index.vue";
-import Navbar from "./components/Navbar/index.vue";
+import Navbar from "./components/NavBar/index.vue";
+import TagsView from "./components/TagsView/index.vue";
 // Vuex store
 const store = useStore();
 
