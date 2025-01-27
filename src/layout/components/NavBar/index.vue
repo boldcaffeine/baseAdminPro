@@ -117,7 +117,7 @@ const logout = async () => {
       }
     }
     .avatar-container {
-      margin-right: 30px;
+      margin-right:8px;
 
       .avatar-wrapper {
         margin-top: 5px;
