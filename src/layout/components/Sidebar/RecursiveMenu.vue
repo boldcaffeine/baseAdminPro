@@ -91,6 +91,7 @@ function resolvePath(routePath) {
 
 <style lang="scss" scoped>
 .el-menu-item {
+  
   .svg-icon {
     font-size: 17px;
     width: 24px;

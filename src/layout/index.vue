@@ -76,6 +76,9 @@ console.log(classObj.value);
     transition: width 0.28s;
     background-color: vars.$menuBg;
     font-size: 0px;
+    :deep(.el-menu--vertical){
+      border-right: 1px solid #304156 ;
+    }
   }
 
   .main-container {
