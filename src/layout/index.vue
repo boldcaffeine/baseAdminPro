@@ -12,7 +12,6 @@
         <tags-view v-if="needTagsView" />
       </div>
       <AppMain></AppMain>
-
     </div>
   </div>
 </template>
