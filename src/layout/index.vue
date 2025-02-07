@@ -11,9 +11,8 @@
         <Navbar></Navbar>
         <tags-view v-if="needTagsView" />
       </div>
-       <div>我是右侧 </div>
+      <AppMain></AppMain>
 
-      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -24,6 +23,7 @@ import { useStore } from "vuex";
 import Sidebar from "./components/Sidebar/index.vue";
 import Navbar from "./components/NavBar/index.vue";
 import TagsView from "./components/TagsView/index.vue";
+import AppMain from "./components/AppMain/index.vue";
 // Vuex store
 const store = useStore();
 

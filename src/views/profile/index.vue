@@ -1,3 +1,11 @@
 <template>
-    <div>6666</div>
+    <div class="app-container">6666</div>
 </template>
+
+<style lang="scss" scoped>
+.app-container {
+  padding: 16px;
+  //   background-color: rgb(240, 242, 245);
+  position: relative;
+}
+</style>

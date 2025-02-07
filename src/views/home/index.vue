@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     我是首页{{ doneTodosCount }}
     <div>
       <svg-icon name="user"></svg-icon>
@@ -19,3 +19,13 @@ const doneTodosCount = computed(() => {
 console.log(store.state, "store.state");
 console.log(store.getters, "store.getters");
 </script>
+
+<style lang="scss" scoped>
+.app-container {
+  padding: 16px;
+//   background-color: rgb(240, 242, 245);
+  position: relative;
+}
+</style>
+
+
