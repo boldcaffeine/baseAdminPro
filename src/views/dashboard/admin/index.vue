@@ -4,6 +4,19 @@
     <el-row style="background: #fff; padding: 16px 16px 0; margin-bottom: 32px">
       <line-chart :chart-data="currentChartData" />
     </el-row>
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <raddar-chart />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">2</div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">3</div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -11,6 +24,7 @@
 import { ref } from "vue";
 import PanelGroup from "./components/PanelGroup.vue";
 import LineChart from "./components/LineChart.vue";
+import RaddarChart from "./components/RaddarChart.vue";
 // lineChartData 对象数据
 const lineChartData = {
   newVisitis: {
