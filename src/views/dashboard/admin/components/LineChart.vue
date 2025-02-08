@@ -5,37 +5,130 @@
 </template>
 
 <script setup>
-import { ref, shallowRef, onMounted } from "vue";
+import { shallowRef, onMounted, ref, watch, nextTick } from "vue";
 import * as echarts from "echarts"; // 假设我们使用 ECharts 作为图表库
 import useResizeHandler from "./mixins/useResizeHandler.ts";
+
+// Props
+const props = defineProps({
+  className: {
+    type: String,
+    default: "chart",
+  },
+  width: {
+    type: String,
+    default: "100%",
+  },
+  height: {
+    type: String,
+    default: "350px",
+  },
+  autoResize: {
+    type: Boolean,
+    default: true,
+  },
+  chartData: {
+    type: Object,
+    required: true,
+  },
+});
+
 const chartContainer = ref(null); // 绑定图表 DOM 容器
 const chartInstance = shallowRef(null); // 图表实例
 useResizeHandler(chartInstance);
-onMounted(() => {
+// Methods
+const initChart = () => {
   if (chartContainer.value) {
     chartInstance.value = echarts.init(chartContainer.value); // 初始化图表
-    const option = {
-      title: {
-        text: "ECharts 示例图表",
-      },
-      tooltip: {},
-      xAxis: {
-        data: ["苹果", "香蕉", "橙子", "葡萄", "梨"],
-      },
-      animation: true,
-      yAxis: {},
-      series: [
-        {
-          name: "销量",
-          type: "bar",
-          data: [5, 20, 36, 10, 10],
-        },
-      ],
-    };
-    chartInstance.value.setOption(option); // 设置图表数据
+    setOptions(props.chartData);
   }
-  // 使用 resizeHandler，自动处理窗口和侧边栏变化
+};
+
+const setOptions = ({ expectedData, actualData } = {}) => {
+  if (!chartInstance.value) return;
+
+  chartInstance.value.setOption({
+    xAxis: {
+      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      boundaryGap: false,
+      axisTick: {
+        show: false,
+      },
+    },
+    grid: {
+      left: 10,
+      right: 10,
+      bottom: 20,
+      top: 30,
+      containLabel: true,
+    },
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "cross",
+      },
+      padding: [5, 10],
+    },
+    yAxis: {
+      axisTick: {
+        show: false,
+      },
+    },
+    legend: {
+      data: ["expected", "actual"],
+    },
+    series: [
+      {
+        name: "expected",
+        lineStyle: {
+          color: "#FF005A",
+          width: 2,
+        },
+        itemStyle: {
+          color: "#FF005A",
+        },
+        smooth: true,
+        type: "line",
+        data: expectedData,
+        animationDuration: 2800,
+        animationEasing: "cubicInOut",
+      },
+      {
+        name: "actual",
+        lineStyle: {
+          color: "#3888fa",
+          width: 2,
+        },
+        itemStyle: {
+          color: "#3888fa",
+        },
+        areaStyle: {
+          color: "#f3f8ff",
+        },
+        smooth: true,
+        type: "line",
+        data: actualData,
+        animationDuration: 2800,
+        animationEasing: "quadraticOut",
+      },
+    ],
+  });
+};
+
+onMounted(() => {
+  nextTick(() => {
+    initChart();
+  });
 });
+
+// Watchers
+watch(
+  () => props.chartData,
+  (newVal) => {
+    setOptions(newVal);
+  },
+  { deep: true }
+);
 </script>
 
 <style scoped>
@@ -50,6 +143,5 @@ onMounted(() => {
 .chart-box {
   width: 100%;
   height: 400px;
-
 }
 </style>

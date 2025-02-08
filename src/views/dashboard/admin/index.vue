@@ -2,7 +2,7 @@
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
     <el-row style="background: #fff; padding: 16px 16px 0; margin-bottom: 32px">
-      <line-chart :chart-data="lineChartData" />
+      <line-chart :chart-data="currentChartData" />
     </el-row>
   </div>
 </template>
@@ -31,10 +31,11 @@ const lineChartData = {
   },
 };
 
-// let currentChartData = ref([]);
+let currentChartData = ref(lineChartData.newVisitis);
 
 function handleSetLineChartData(type: any) {
-  // currentChartData.value = lineChartData[type];
+  // @ts-ignore
+  currentChartData.value = lineChartData[type];
 }
 </script>
 
