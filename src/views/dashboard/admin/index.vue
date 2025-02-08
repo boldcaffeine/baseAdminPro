@@ -53,9 +53,28 @@ function handleSetLineChartData(type: any) {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .dashboard-editor-container {
   background: #f0f2f5;
   padding: 16px;
+
+  .github-corner {
+    position: absolute;
+    top: 0px;
+    border: 0;
+    right: 0;
+  }
+
+  .chart-wrapper {
+    background: #fff;
+    padding: 16px 16px 0;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .chart-wrapper {
+    padding: 8px;
+  }
 }
 </style>
