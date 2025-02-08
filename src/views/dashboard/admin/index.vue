@@ -11,7 +11,9 @@
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">2</div>
+        <div class="chart-wrapper">
+          <pie-chart />
+        </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">3</div>
@@ -25,6 +27,7 @@ import { ref } from "vue";
 import PanelGroup from "./components/PanelGroup.vue";
 import LineChart from "./components/LineChart.vue";
 import RaddarChart from "./components/RaddarChart.vue";
+import PieChart from "./components/PieChart.vue";
 // lineChartData 对象数据
 const lineChartData = {
   newVisitis: {
