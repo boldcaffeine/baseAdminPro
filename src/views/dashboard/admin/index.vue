@@ -1,13 +1,16 @@
 <template>
   <div class="dashboard-editor-container">
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
+    <el-row style="background: #fff; padding: 16px 16px 0; margin-bottom: 32px">
+      <line-chart :chart-data="lineChartData" />
+    </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import PanelGroup from "./components/PanelGroup.vue";
-
+import LineChart from "./components/LineChart.vue";
 // lineChartData 对象数据
 const lineChartData = {
   newVisitis: {
@@ -30,14 +33,13 @@ const lineChartData = {
 
 // let currentChartData = ref([]);
 
-
-function handleSetLineChartData(type:any) {
-    // currentChartData.value = lineChartData[type];
+function handleSetLineChartData(type: any) {
+  // currentChartData.value = lineChartData[type];
 }
 </script>
 
-<style lang="scss" >
-.dashboard-editor-container{
+<style lang="scss">
+.dashboard-editor-container {
   background: #f0f2f5;
   padding: 16px;
 }
